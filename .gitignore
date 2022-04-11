@@ -1,0 +1,6 @@
+.idea/*
+venv/*
+venv/
+.idea/
+.pytest_cache/*
+tests/.pytest_cache/*
