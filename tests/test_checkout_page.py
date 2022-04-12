@@ -1,8 +1,10 @@
+""" Tests for the checkout page. """
+
 import pytest
-from pages.LoginPage import LoginPage
-from pages.ProductPage import ProductPage
-from pages.BucketPage import BucketPage
-from pages.CheckoutPage import CheckoutPage
+from pages.login_page import LoginPage
+from pages.product_page import ProductPage
+from pages.bucket_page import BucketPage
+from pages.checkout_page import CheckoutPage
 from utils.creds_base import *
 
 

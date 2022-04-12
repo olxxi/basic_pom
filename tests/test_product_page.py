@@ -1,6 +1,8 @@
+""" Tests for the product page. """
+
 import pytest
-from pages.LoginPage import LoginPage
-from pages.ProductPage import ProductPage
+from pages.login_page import LoginPage
+from pages.product_page import ProductPage
 from utils.creds_base import *
 
 

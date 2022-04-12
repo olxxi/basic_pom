@@ -1,5 +1,7 @@
+""" Tests for the Login page. """
+
 import pytest
-from pages.LoginPage import LoginPage
+from pages.login_page import LoginPage
 from utils.creds_base import *
 
 

@@ -1,7 +1,9 @@
+""" Tests for bucket/cart page """
+
 import pytest
-from pages.LoginPage import LoginPage
-from pages.ProductPage import ProductPage
-from pages.BucketPage import BucketPage
+from pages.login_page import LoginPage
+from pages.product_page import ProductPage
+from pages.bucket_page import BucketPage
 from utils.creds_base import *
 
 

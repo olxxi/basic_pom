@@ -1,4 +1,6 @@
-from pages.BasePage import BasePage
+""" Checkout page object. """
+
+from pages.base_page import BasePage
 from locators.checkout_page_locators import *
 
 

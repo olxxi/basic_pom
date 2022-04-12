@@ -1,0 +1,16 @@
+[MASTER]
+fail-under=8.0
+disable=
+  broad-except,
+  global-statement,
+  invalid-name,
+  missing-class-docstring,
+  missing-function-docstring,
+  missing-module-docstring,
+  multiple-statements,
+  no-member,
+  duplicated-code,
+  wildcard-import,
+  useless-super-delegation,
+  no-value-for-parameter,
+  redefined-builtin,

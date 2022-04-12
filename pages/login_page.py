@@ -1,7 +1,9 @@
+""" Login page object. """
+
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from pages.BasePage import BasePage
+from pages.base_page import BasePage
 from locators.login_page_locators import *
 
 

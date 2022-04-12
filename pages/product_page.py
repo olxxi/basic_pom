@@ -1,6 +1,6 @@
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from pages.BasePage import BasePage
+""" Product page object. """
+
+from pages.base_page import BasePage
 from locators.product_list_locators import *
 
 
@@ -62,12 +62,13 @@ class ProductPage(BasePage):
         """
         Get the number of items in the cart.
         """
+        num_int = None
         has_items_in_cart = len(self.driver.find_elements(*cart_item_count_selector)) > 0
         if has_items_in_cart:
             num_items_in_cart = self.driver.find_element(*cart_item_count_selector).text
-            return int(num_items_in_cart)
-        else:
-            return 0
+            num_int = int(num_items_in_cart)
+
+        return num_int
 
     def add_all_to_cart(self):
         """
