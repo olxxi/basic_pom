@@ -1,8 +1,68 @@
-## Selenium Page Object Model framework implementation
+## Selenium Page Object Model framework
 
 Basic implementation of POM automation testing framework for https://www.saucedemo.com/.
 
-### Structure:
+Page-object-model (POM) is a pattern that you can apply it to develop efficient automation framework. With page-model, it is possible to minimise maintenance cost. Basically page-object means that your every page is inherited from a base class which includes basic functionalities for every pages. If you have some new functionality that every pages have, you can simple add it to the base class.
+
+`BasePage` class (`pages.base_page.py`) include basic functionality and driver initialization:
+
+```
+class BasePage:
+    """ Page class. """
+    def __init__(self, driver):
+        self.driver = driver
+        self.url = URL
+
+    def init_site(self):
+        """ Initialize the URL. """
+        self.driver.get(self.url)
+
+    def click_element(self, selector, wait_time=5):
+        """ Click on an element. """
+        element = WebDriverWait(self.driver, wait_time).until(
+            EC.presence_of_element_located(selector)
+        )
+        element.click()
+        
+     ...
+```
+
+For example, `LoginPage` (`pages.login_page.py`) class is derived from th `BasePage` class. It contains methods related to this page, which will be used to create test steps.
+
+```
+class LoginPage(BasePage):
+    """
+    Object for Login Page
+    """
+
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.init_site()
+
+    def login_button_click(self):
+        """
+        Click on the login button.
+        """
+        self.click_element(login_button)
+        WebDriverWait(self.driver, 5).until(EC.url_changes)
+       
+    ...
+```
+
+In the process of writing tests, you should base you workflow in actions described in the page classes:
+
+```
+def test_successful_login(driver, login, password):
+
+    login_page = LoginPage(driver)
+    login_page.enter_username(login)
+    login_page.enter_password(password)
+    login_page.login_button_click()
+
+    assert not login_page.is_error_message_exists()
+```
+---
+### Project Structure:
 * Locators: `locators/*`
 * Pages: `pages/*`
 * Tests: `tests/*`
@@ -17,6 +77,10 @@ Basic implementation of POM automation testing framework for https://www.saucede
 2. Run the tests:
 
     `pytest -v`
+
+3. Run the tests in parallel:
+
+    `pytest -v -n 4`
 
 ### Description:
 
