@@ -7,7 +7,7 @@ from utils.constants import DEFAULT_WAIT_TIME
 @pytest.fixture
 def driver(request):
     """Creates test fixtures for pytest."""
-    web_driver = webdriver.Chrome(executable_path='./drivers/chromedriver.exe')
+    web_driver = webdriver.Chrome(executable_path='drivers/chromedriver_lin')
     web_driver.delete_all_cookies()
 
     web_driver.implicitly_wait(DEFAULT_WAIT_TIME)
