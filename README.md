@@ -81,6 +81,9 @@ def test_successful_login(driver, login, password):
 3. Run the tests in parallel:
 
     `pytest -v -n 4`
+4. Run static check for the code. The configuration is in `.pylintrc` file.
+
+    `pylint ./folder_name/*`
 
 ### Description:
 
